@@ -2,37 +2,133 @@
   text-align: center;
 }
 
+body {
+  background: whitesmoke;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.wrap {
+  border: 1px solid mediumseagreen;
+  margin: 1%;
+  padding: 1%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  background: mediumseagreen;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.productCard {
+  margin: 2%;
+  border: 1px solid ghostwhite;
+  padding: 10px;
+  background: ghostwhite;
+}
+
+.productImage {
+  width: 70%
+}
+
+.priceBeforeSale {
+  text-decoration: line-through;
+}
+
+.calcWrap {
+  border: 1px solid gray;
+  margin: 1% 5%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  border-radius: 15px;
+}
+
+#calcButton {
+  font-size: 40px;
+  border-radius: 55px;
+  border: 1px solid black;
+  margin: 7px;
+}
+
+#calcButton0 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 40px;
+  border-radius: 55px;
+  border: 1px solid black;
+  margin: 7px;
+}
+
+.calcResultArea {
+  font-size: 50px;
+  border: 2px solid black;
+  border-radius: 15px;
+  height: 70px;
+  margin: 1% 5%;
+  padding: 0% 5%;
+  text-align: right;
+}
+
+.additional {
+  background: honeydew;
+}
+
+.action {
+  background: gold;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.equally  {
+  background: gold;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.digit {
+  background: dimgrey;
+  color: white;
 }
+
+/*button {*/
+/*  margin: 20px;*/
+/*  padding: 10px 20px;*/
+/*  border-radius: 15%;*/
+/*  border-color: darkgreen;*/
+/*  color: darkgreen;*/
+/*}*/
+
+/*.head {*/
+/*  height: 200px;*/
+/*  border: 2px grey solid;*/
+/*}*/
+
+/*@media (prefers-reduced-motion: no-preference) {*/
+/*  .App-logo {*/
+/*    animation: App-logo-spin infinite 20s linear;*/
+/*  }*/
+/*}*/
+
+/*.App-header {*/
+/*  background-color: #282c34;*/
+/*  min-height: 100vh;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  font-size: calc(10px + 2vmin);*/
+/*  color: white;*/
+/*}*/
+
+/*.App-link {*/
+/*  color: #61dafb;*/
+/*}*/
+
+/*@keyframes App-logo-spin {*/
+/*  from {*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(360deg);*/
+/*  }*/
+/*}*/

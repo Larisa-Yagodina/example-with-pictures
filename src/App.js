@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import ActivityBooking from "./activitiesBooking/ActivityBooking";
+import {useState} from "react";
+import Calculator from "./calculator/Calculator";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [visibleApp, setVisibleApp] = useState('')
+
+    return (
+        <div className="App">
+            <h1>Applications</h1>
+
+            <div> To book an activity
+                <button onClick={() => setVisibleApp('activity')}> OK </button>
+            </div>
+
+            <div>Open a calculator
+                <button onClick={() => setVisibleApp('calculator')}> OK </button>
+            </div>
+
+            { visibleApp === 'activity' && <ActivityBooking />}
+            { visibleApp === 'calculator' && <Calculator />}
+
+        </div>
+    );
 }
 
 export default App;
