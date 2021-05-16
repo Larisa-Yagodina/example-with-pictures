@@ -88,12 +88,12 @@ export default function Calculator() {
     const [operation, setOperation] = useState('')
     const [result, setResult] = useState('')
 
-    const calculate = () => {
+    const calculate = (percent) => {
         if (secondNumber === '') return 0;
 
         let newResult;
         const first = Number(firstNumber);
-        const second = Number(secondNumber);
+        const second = percent ? (first / 100 * Number(secondNumber)) : Number(secondNumber) ;
         switch (operation) {
             case '+':
                 newResult = first + second;
@@ -180,23 +180,25 @@ export default function Calculator() {
             setResult('')
         }
 
-        // if (calcSymbol === '%') {
-        //     let percent;
-        //     if (result !== '') percent = result / 100;
-        //     if (secondNumber !== '' && firstNumber !== '') percent = secondNumber / 100;
-        //     if (firstNumber !== '') percent = firstNumber / 100;
-        //     setResult(percent)
-        //     setFirstNumber('')
-        //     setSecondNumber('')
-        //     setOperation('')
-        // }
+        if (calcSymbol === '%') {
+           if (result !== '') setResult(result / 100);
+           if (result === '' && secondNumber === '') setResult(firstNumber / 100)
+           if (firstNumber !== '' && secondNumber !== '') {
+           const percentResult = calculate(true)
+               setResult(percentResult)
+               setFirstNumber('')
+               setSecondNumber('')
+               setOperation('')
+           }
+        }
 
     }
+
 
     return (
         <div>
             <h2>Calculator</h2>
-             {/*{firstNumber} {' '} {operation} {' '} {secondNumber} = {result}*/}
+             {firstNumber} {' '} {operation} {' '} {secondNumber} = {result}
              <ResultArea firstNumber={firstNumber} secondNumber={secondNumber} result={result} />
              <CalculatorSquare buttonHandler={buttonHandler} allButtons={allButtons}/>
         </div>
