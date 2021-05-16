@@ -198,7 +198,7 @@ export default function Calculator() {
     return (
         <div>
             <h2>Calculator</h2>
-             {firstNumber} {' '} {operation} {' '} {secondNumber} = {result}
+             {/*{firstNumber} {' '} {operation} {' '} {secondNumber} = {result}*/}
              <ResultArea firstNumber={firstNumber} secondNumber={secondNumber} result={result} />
              <CalculatorSquare buttonHandler={buttonHandler} allButtons={allButtons}/>
         </div>
