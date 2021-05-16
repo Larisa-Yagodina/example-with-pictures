@@ -182,7 +182,10 @@ export default function Calculator() {
 
         if (calcSymbol === '%') {
            if (result !== '') setResult(result / 100);
-           if (result === '' && secondNumber === '') setResult(firstNumber / 100)
+           if (result === '' && secondNumber === '') {
+               setResult(firstNumber / 100)
+               setFirstNumber('')
+           }
            if (firstNumber !== '' && secondNumber !== '') {
            const percentResult = calculate(true)
                setResult(percentResult)
