@@ -3,7 +3,7 @@
 }
 
 body {
-  background: whitesmoke;
+  background: rgb(255, 255, 255);
 }
 
 .App-logo {
@@ -18,7 +18,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: minmax(100px, auto);
-  background: mediumseagreen;
+  background: rgb(240, 240, 240);
 }
 
 .productCard {
@@ -37,7 +37,6 @@ body {
 }
 
 .calcWrap {
-  border: 1px solid gray;
   margin: 1% 5%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -63,7 +62,6 @@ body {
 
 .calcResultArea {
   font-size: 50px;
-  border: 2px solid black;
   border-radius: 15px;
   height: 70px;
   margin: 1% 5%;
@@ -72,21 +70,26 @@ body {
 }
 
 .additional {
-  background: honeydew;
+  background: rgb(240, 240, 240);
 }
 
 .action {
-  background: gold;
+  background: rgb(212, 175, 55);
   color: white;
 }
 
+.action:focus { /* при нажатии */
+  background: rgb(250, 250, 250);
+  color: rgb(212, 175, 55);
+}
+
 .equally  {
-  background: gold;
+  background: rgb(212, 175, 55);
   color: white;
 }
 
 .digit {
-  background: dimgrey;
+  background: rgb(100, 100, 100);
   color: white;
 }
 
