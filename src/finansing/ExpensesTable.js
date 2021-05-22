@@ -5,7 +5,7 @@ import { Button, Menu, Dropdown } from 'antd';
 
 export default function ExpensesTable (props) {
 
-    const buttonTagUpdate = <><Button> update </Button>{' '}<Button> delete </Button></>;
+    const buttonTagUpdate = <><Button> Update </Button>{' '}<Button> Delete </Button></>;
     const buttonTagIncome = <Button> set income </Button> ;
     const buttonTagAddExpense = <Button> add new expense </Button>
 
