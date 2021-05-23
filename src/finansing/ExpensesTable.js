@@ -1,6 +1,6 @@
-import { Table, Switch, Space } from 'antd';
+import { Table } from 'antd';
 import {useState} from "react";
-import { Button, Menu, Dropdown } from 'antd';
+import { Button } from 'antd';
 
 
 export default function ExpensesTable (props) {

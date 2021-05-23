@@ -4,7 +4,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import {useState} from "react";
 import Calculator from "../calculator/Calculator";
-import ExpensesTable from "../finansingV1/ExpensesTable";
+import ExpensesTable from "../finansing/ExpensesTable";
 import ExpensesTableAndDatas from "../finansingV2/ExpensesTableAndDatas";
 
 const AntTabs = withStyles({
