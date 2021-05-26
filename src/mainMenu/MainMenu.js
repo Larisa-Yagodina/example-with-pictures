@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import {useState} from "react";
 import Calculator from "../calculator/Calculator";
 import ExpensesTable from "../finansing/ExpensesTable";
-import ExpensesTableAndDatas from "../finansingV2/ExpensesTableAndDatas";
+import ExpensesTableMain from "../finansingV2/ExpensesTableMain";
 
 const AntTabs = withStyles({
     root: {
@@ -87,7 +87,7 @@ export default function MainMenu() {
             </div>
             {value === 0 && <Calculator/>}
             {value === 1 && <ExpensesTable/>}
-            {value === 2 && <ExpensesTableAndDatas/>}
+            {value === 2 && <ExpensesTableMain/>}
         </div>
     );
 }

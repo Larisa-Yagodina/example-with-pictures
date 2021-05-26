@@ -1,155 +1,111 @@
 import {useState} from "react";
-import {Button} from "antd";
+import TableWrapper from "./TableWrapper";
 
+export default function ExpensesTableMain() {
 
-export default function ExpensesTableAndDatas() {
-
-    const buttonTagUpdate = <><Button> Update </Button>{' '}<Button> Delete </Button></>;
-    const buttonTagIncome = <Button> set income </Button> ;
-    const buttonTagAddExpense = <Button> add new expense </Button>
-
-    const columnsExpenses = [
-        {
-            title: 'Expenses',
-            dataIndex: 'expenses',
-            key: 'expenses',
-        },
-        {
-            title: 'Percent / Amount',
-            dataIndex: 'percentAmount',
-            key: 'percentAmount',
-            width: '15%',
-        },
-        {
-            title: 'Amount',
-            dataIndex: 'amount',
-            key: 'amount',
-            width: '20%',
-        },
-        {
-            title: 'Actions',
-            dataIndex: 'actions',
-            key: 'actions',
-            width: '25%',
-        },
-    ];
 
     const [dataExpenses, setDataExpenses] = useState([
         {
-            key: 0,
+            id: 0,
             expenses: 'Income',
-            percentAmount: '100%',
+            percent: '100%',
             amount: 300000,
-            actions: buttonTagIncome,
+            children: undefined,
         }, {
-            key: 1,
+            id: 1,
             expenses: 'Basic Expenses',
-            percentAmount: null,
+            percent: null,
             amount: 20000,
-            actions: buttonTagAddExpense,
             children: [
                 {
-                    key: 11,
+                    id: 11,
                     expenses: 'Еда',
                     percentAmount: null,
                     amount: 10000,
-                    actions: buttonTagUpdate,
                 },
                 {
-                    key: 12,
+                    id: 12,
                     expenses: 'Жилье',
                     percentAmount: null,
                     amount: 10000,
-                    actions: buttonTagUpdate,
                 },
                 {
-                    key: 13,
+                    id: 13,
                     expenses: 'Бытовая химия',
                     percentAmount: null,
                     amount: 10000,
-                    actions: buttonTagUpdate,
                 },
                 {
-                    key: 14,
+                    id: 14,
                     expenses: 'Телефон',
                     percentAmount: null,
                     amount: 10000,
-                    actions: buttonTagUpdate,
                 },
                 {
-                    key: 15,
+                    id: 15,
                     expenses: 'Передвижение',
                     percentAmount: null,
                     amount: 10000,
-                    actions: buttonTagUpdate,
                 },
             ],
         },
         {
-            key: 2,
+            id: 2,
             expenses: 'Short Term Expenses',
-            percentAmount: null,
+            percent: null,
             amount: 20000,
-            actions: buttonTagAddExpense,
             children: [
                 {
-                    key: 21,
+                    id: 21,
                     expenses: 'Косметика',
                     percentAmount: '5%',
                     amount: 10000,
-                    actions: buttonTagUpdate,
                 },
                 {
-                    key: 22,
+                    id: 22,
                     expenses: 'Подарки',
                     percentAmount: '5%',
                     amount: 10000,
-                    actions: buttonTagUpdate,
                 },
                 {
-                    key: 23,
+                    id: 23,
                     expenses: 'Отпуск',
                     percentAmount: '5%',
                     amount: 10000,
-                    actions: buttonTagUpdate,
                 },
             ],
         },
         {
-            key: 3,
+            id: 3,
             expenses: 'Long Term Expenses',
-            percentAmount: '15%',
+            percent: '15%',
             amount: null,
-            actions: buttonTagAddExpense,
             children: [
                 {
-                    key: 31,
+                    id: 31,
                     expenses: 'Машина',
                     percentAmount: '5%',
                     amount: 10000,
-                    actions: buttonTagUpdate,
                 },
                 {
-                    key: 32,
+                    id: 32,
                     expenses: 'Квартира',
                     percentAmount: '5%',
                     amount: 10000,
-                    actions: buttonTagUpdate,
                 },
                 {
-                    key: 33,
+                    id: 33,
                     expenses: 'Резервы',
                     percentAmount: '5%',
                     amount: 10000,
-                    actions: buttonTagUpdate,
                 },
             ],
         }
     ]);
 
-
     return (
         <div>
+          <TableWrapper dataExpenses={dataExpenses} />
 
         </div>
     )

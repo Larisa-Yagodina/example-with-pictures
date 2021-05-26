@@ -1,12 +1,19 @@
 import { Table } from 'antd';
-import {useState} from "react";
+import React, {useState} from "react";
 import { Button } from 'antd';
+import ModalUpdate from "./ModalUpdate";
 
 
 export default function ExpensesTable (props) {
 
+    const [openModal, setOpenModal] = React.useState(false);
+
+    const toggle = () => {
+        setOpenModal(!openModal);
+    };
+
+    const buttonTagIncome = <Button onClick={toggle}> set income </Button>;
     const buttonTagUpdate = <><Button> Update </Button>{' '}<Button> Delete </Button></>;
-    const buttonTagIncome = <Button> set income </Button> ;
     const buttonTagAddExpense = <Button> add new expense </Button>
 
     const columnsExpenses = [
@@ -148,6 +155,10 @@ export default function ExpensesTable (props) {
         }
     ]);
 
+
+
+    const [inputIncome, setInputIncome] = useState('')
+
     // const rowSelection = {
     //     onChange: (selectedRowKeys, selectedRows) => {
     //         console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
@@ -162,6 +173,8 @@ export default function ExpensesTable (props) {
     //
     // const checkStrictly = true;
 
+
+
     return (
         <>
             <h2>Monthly Expenses Plan</h2>
@@ -170,6 +183,7 @@ export default function ExpensesTable (props) {
                 //rowSelection={{ ...rowSelection, checkStrictly }}
                 dataSource={dataExpenses}
             />
+            <ModalUpdate toggle={toggle} openModal={openModal}/>
         </>
     )
 };
