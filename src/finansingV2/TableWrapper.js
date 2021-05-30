@@ -28,8 +28,11 @@ export default function TableWrapper(props) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
-                        <TableRowAndCells key={row.expenses} row={row} />
+                    {rows.sort((a, b) => a.serialNumber - b.serialNumber).map((row) => (
+                        <TableRowAndCells
+                            editButtonHandler={props.editButtonHandler}
+                            key={row.id} row={row}
+                        />
                     ))}
                 </TableBody>
             </Table>

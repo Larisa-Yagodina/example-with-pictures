@@ -4,7 +4,6 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import {useState} from "react";
 import Calculator from "../calculator/Calculator";
-import ExpensesTable from "../finansing/ExpensesTable";
 import ExpensesTableMain from "../finansingV2/ExpensesTableMain";
 
 const AntTabs = withStyles({
@@ -70,7 +69,6 @@ export default function MainMenu() {
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
-        console.log(newValue)
         setValue(newValue);
     };
 
@@ -79,15 +77,12 @@ export default function MainMenu() {
             <div className={classes.demo1}>
                 <AntTabs value={value} onChange={handleChange}>
                     <AntTab label="Calculator"/>
-                    <AntTab label="Expenses table V1"/>
-                    <AntTab label="Expenses table V2"/>
-                    <AntTab label="Smth new"/>
+                    <AntTab label="Expenses planning"/>
                 </AntTabs>
                 <Typography className={classes.padding}/>
             </div>
             {value === 0 && <Calculator/>}
-            {value === 1 && <ExpensesTable/>}
-            {value === 2 && <ExpensesTableMain/>}
+            {value === 1 && <ExpensesTableMain/>}
         </div>
     );
 }

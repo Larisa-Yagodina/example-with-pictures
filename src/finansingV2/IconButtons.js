@@ -18,15 +18,18 @@ const LightTooltip = withStyles((theme) => ({
 
 export default function IconButtons(props) {
 
-    const {updateIcon, addIcon, deleteIcon} = props;
-
+    const {updateIcon, addIcon, deleteIcon, row} = props;
     return (
         <span>
             {/*карандаш "редактировать"*/}
             { updateIcon &&
             <LightTooltip title="редактировать" placement="left-start">
             <IconButton>
-                <CreateOutlinedIcon fontSize={'small'} color={'grey'}/>
+                <CreateOutlinedIcon
+                    onClick={() => props.editButtonHandler(row, row.name === 'Income' ? 'editIncome' : 'editExpenses')}
+                    fontSize={'small'}
+                    color={'grey'}
+                />
             </IconButton>
             </LightTooltip>}
 

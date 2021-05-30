@@ -31,20 +31,25 @@ export default function TableRowAndCells(props) {
 
     return (
         <React.Fragment>
-            <TableRow className={classes.root && row.expenses === 'Income' ? 'income' : 'expenses'}>
+            <TableRow className={classes.root && row.name === 'Income' ? 'income' : 'expenses'}>
                 <TableCell>
                     { row.children !== undefined && <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
                         {open ? <KeyboardArrowUpIcon/> : <KeyboardArrowDownIcon/>}
                     </IconButton>}
                 </TableCell>
                 <TableCell component="th" scope="row">
-                    {row.expenses}
+                    {row.name}
                 </TableCell>
-                <TableCell align="right">{row.percent}</TableCell>
+                <TableCell align="right">{row.percent}{row.percent? '%' : null}</TableCell>
                 <TableCell align="right">{row.amount}</TableCell>
                 <TableCell align="right">{row.amount / 4}</TableCell>
                 <TableCell align="right">
-                      <IconButtons addIcon={row.expenses !== 'Income'} updateIcon={row.expenses === 'Income'}/>
+                      <IconButtons
+                          row={row}
+                          addIcon={row.name !== 'Income'}
+                          updateIcon={true}
+                          editButtonHandler={props.editButtonHandler}
+                      />
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -65,17 +70,23 @@ export default function TableRowAndCells(props) {
                                 </TableHead>
                                 <TableBody>
                                     {row.children.map((expensesItem) => (
-                                        <TableRow key={expensesItem.expenses}>
+
+                                        <TableRow key={expensesItem.name}>
                                             <TableCell component="th" scope="row">
-                                                {expensesItem.expenses}
+                                                {expensesItem.name}
                                             </TableCell>
-                                            <TableCell>{expensesItem.percentAmount}</TableCell>
+                                            <TableCell>{expensesItem.percentAmount}{row.percent ? '%' : null}</TableCell>
                                             <TableCell align="right">{expensesItem.amount}</TableCell>
                                             <TableCell align="right">
                                                 {expensesItem.amount / 4}
                                             </TableCell>
                                             <TableCell align="right">
-                                                 <IconButtons updateIcon={row.expenses !== 'Income'} deleteIcon={true} />
+                                                <IconButtons
+                                                    row={expensesItem}
+                                                    deleteIcon={true}
+                                                    updateIcon={false}
+                                                    editButtonHandler={props.editButtonHandler}
+                                                />
                                             </TableCell>
                                         </TableRow>
                                     ))}
